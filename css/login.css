@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+      --bg: #f7f9fc; --card: #ffffff; --text: #0b2d50; --muted: #4a5b6d;
+      --line: #e1e7ef; --brand-blue: #0b2d50; --accent: #0071ce;
+      --brand-orange: #F16F15; --brand-orange-light: #ffb86c;
+      --radius: 14px; --shadow: 0 8px 30px rgba(7,29,54,.08);
+      /* Transición estándar para efectos suaves */
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font: 15px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+
+    /* ✨ Animación de aparición suave: hace que los elementos se deslicen ligeramente hacia arriba mientras se desvanecen */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .login-container {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      max-width: 900px;
+      width: 100%;
+      /* ✨ Animación de entrada general */
+      animation: fadeIn 0.8s ease-out both;
+    }
+
+    
+
+    /* 🔶 Lado izquierdo con animación */
+    .brand-side {
+      background: linear-gradient(135deg, var(--brand-orange), var(--brand-orange-light));
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      text-align: center;
+
+       
+    }
+
+
+    
+    .brand-side img {
+      height: 96px; 
+      margin-bottom: 20px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+      /* Aplica animación de entrada suave (fadeIn) en 1 segundo */
+      animation: fadeIn 1s ease-out;
+      z-index: 1;
+    }
+
+    .brand-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin: 0;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      /* Aplica animación de entrada suave (fadeIn) en 1 segundo */
+      z-index: 1;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .brand-subtitle {
+      font-size: 1.1rem;
+      margin-top: 10px;
+      color: #fff8e7;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.10);
+      /* Aplica animación de entrada suave (fadeIn) en 1 segundo */
+      z-index: 1;
+      animation: fadeIn 1.4s ease-out;
+    }
+
+    /* Formulario */
+    .form-side {
+      padding: 40px 30px;
+      /* Animación */
+      animation: fadeIn 1s ease-out 0.2s both;
+    }
+
+    .form-side h2 {
+      font-weight: 700;
+      color: var(--brand-blue);
+      margin-bottom: 10px;
+    }
+
+    .form-side p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      font-weight: 600;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+    .form-control {
+      border-radius: 10px;
+      padding: 12px 14px;
+
+       transition: var(--transition);
+    }
+
+    /* Efecto de enfoque suave en los los campos de formulario*/
+    .form-control:focus {
+      box-shadow: 0 0 0 4px rgba(241, 111, 21, 0.25);
+      transform: scale(1.02);
+      border-color: var(--brand-orange);
+    }
+
+    .btn-primary {
+      background-color: var(--brand-orange);
+      border: none;
+      font-weight: 600;
+      padding: 12px;
+      margin-top: 20px;
+      border-radius: 10px;
+      /* Agrego*/
+      transition: var(--transition);
+       background-size: 200%;
+      background: linear-gradient(90deg, var(--brand-orange), var(--brand-orange-light));
+    }
+    /* 🔸 Efecto al pasar el mouse: agranda, aclara y añade sombra */
+    .btn-primary:hover {
+      transform: scale(1.05);
+       background-position: right;
+      box-shadow: 0 8px 20px rgba(241, 111, 21, 0.3);
+    }
+
+    /* 🔸 Movimiento al presionar */
+.btn-primary:active {
+  transform: scale(0.97);
+  box-shadow: 0 4px 10px rgba(241, 111, 21, 0.2);
+}
+
+
+    .footer {
+      margin-top: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+
+    }
+
+    .pwd-wrapper {
+      position: relative;
+    }
+
+    #pwd {
+      padding-right: 38px; 
+    }
+
+    #togglePwd {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      z-index: 2;
+      color: #888;
+      font-size: 1.3rem;
+      line-height: 1;
+      height: 28px;
+      width: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 767px) {
+      .brand-side {
+        padding: 30px 20px;
+      }
+    }
+
+    /* ✨ Animación suave al aparecer la alerta */
+    .animated-alert {
+      opacity: 0;
+      transform: translateY(-10px);
+      animation: fadeSlideIn 0.5s ease forwards;
+    }
+
+    /* 🔹 Entrada: deslizamiento suave desde arriba */
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* 🔹 Salida: se desvanece hacia arriba */
+    @keyframes fadeSlideOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+    }
